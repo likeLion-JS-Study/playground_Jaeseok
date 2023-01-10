@@ -1,0 +1,7 @@
+{
+  "scripts":{
+    "start": "npx live-server  --host=localhost --port=5600 --no-browser"
+  },
+  "devDependencies":{"live-server":"^1.2.2"}
+}
+
