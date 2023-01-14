@@ -11,6 +11,35 @@
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  
+  <header class="header">
+    <h1 class="logo"><a href="#">T O D O</a></h1>
+  </header>
+  <main class="main">
+    <h2 class="sr-only">new todo</h2>
+    <div class="create">
+      <form action="#" method="post">
+        <fieldset>
+          <legend>create todo</legend>
+          <label for="create-todo"></label>
+          <input type="text" id="create-todo" placeholder="Create a new todo.."/>
+        </fieldset>
+      </form>
+    </div>
+    <div class="list">
+      <ul class="list-todo">
+        <li class="todo-item"><a href="#">Complete online JavaScript course</a></li>
+        <li class="todo-item"><a href="#">Jog around the park 3x</a></li>
+        <li class="todo-item"><a href="#">10 minutes meditation</a></li>
+        <li class="todo-item"><a href="#">Read for 1 hour</a></li>
+      </ul>
+      <ul class="list-info">
+        <li><a href="#">5 items left</a></li>
+        <li><a href="#">All</a></li>
+        <li><a href="#">Active</a></li>
+        <li><a href="#">Completed</a></li>
+        <li><a href="#">Clear Completed</a></li>
+      </ul>
+    </div>
+  </main>
 </body>
 </html>
