@@ -12,40 +12,48 @@
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
+  <!-- header start -->
   <header class="header">
     <h1 class="logo"><a href="#">T O D O</a></h1>
   </header>
+  <!-- header end -->
+  <!-- main start -->
   <main class="main">
     <h2 class="sr-only">new todo</h2>
-    <div class="create">
-      <form action="#" method="post">
-        <fieldset>
-          <legend>create todo</legend>
-          <label for="create-todo"></label>
-          <input type="text" id="create-todo" placeholder="Create a new todo.." value="" />
-        </fieldset>
-      </form>
-    </div>
-    <div class="list">
-      <ul class="list-todo">
-        <li class="todo-item">
-          <legend>todo list</legend>
-          <label for="todo2"></label>
-          <input type="text" id="todo2" value="Complete online JavaScript course" />
-        </li>
-        <li class="todo-item">
-          <legend>todo list</legend>
-          <label for="todo1"></label>
-          <input type="text" id="todo1" value="Jog around the park 3x" />
-        </li>
-        <ul class="list-info">
-          <span class="list-left">5 items left</span>
-          <button class="list-btn btn-all">All</button>
-          <button class="list-btn btn-active">Active</button>
-          <button class="list-btn btn-completed">Completed</button>
-          <button class="list-btn btn-close-completed">Close Completed</button>
-        </ul>
-    </div>
+    <section class="section_create">
+      <div class="create">
+        <form action="#" method="post">
+          <fieldset>
+            <legend>create todo</legend>
+            <label for="create-todo"></label>
+            <input type="text" id="create-todo" placeholder="Create a new todo.." value="" />
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="section_list">
+      <div class="list">
+        <ul class="list-todo">
+          <li class="todo-item">
+            <legend>todo list</legend>
+            <label for="todo2"></label>
+            <input type="text" id="todo2" value="Complete online JavaScript course" />
+          </li>
+          <li class="todo-item">
+            <legend>todo list</legend>
+            <label for="todo1"></label>
+            <input type="text" id="todo1" value="Jog around the park 3x" />
+          </li>
+          <ul class="list-info">
+            <span class="list-left">5 items left</span>
+            <button class="list-btn btn-all">All</button>
+            <button class="list-btn btn-active">Active</button>
+            <button class="list-btn btn-completed">Completed</button>
+            <button class="list-btn btn-close-completed">Close Completed</button>
+          </ul>
+      </div>
+    </section>
   </main>
+  <!-- main end -->
 </body>
 </html>
