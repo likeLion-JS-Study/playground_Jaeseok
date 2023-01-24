@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Todo app</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,24 +22,29 @@
         <fieldset>
           <legend>create todo</legend>
           <label for="create-todo"></label>
-          <input type="text" id="create-todo" placeholder="Create a new todo.."/>
+          <input type="text" id="create-todo" placeholder="Create a new todo.." value="" />
         </fieldset>
       </form>
     </div>
     <div class="list">
       <ul class="list-todo">
-        <li class="todo-item"><a href="#">Complete online JavaScript course</a></li>
-        <li class="todo-item"><a href="#">Jog around the park 3x</a></li>
-        <li class="todo-item"><a href="#">10 minutes meditation</a></li>
-        <li class="todo-item"><a href="#">Read for 1 hour</a></li>
-      </ul>
-      <ul class="list-info">
-        <li><a href="#">5 items left</a></li>
-        <li><a href="#">All</a></li>
-        <li><a href="#">Active</a></li>
-        <li><a href="#">Completed</a></li>
-        <li><a href="#">Clear Completed</a></li>
-      </ul>
+        <li class="todo-item">
+          <legend>todo list</legend>
+          <label for="todo2"></label>
+          <input type="text" id="todo2" value="Complete online JavaScript course" />
+        </li>
+        <li class="todo-item">
+          <legend>todo list</legend>
+          <label for="todo1"></label>
+          <input type="text" id="todo1" value="Jog around the park 3x" />
+        </li>
+        <ul class="list-info">
+          <span class="list-left">5 items left</span>
+          <button class="list-btn btn-all">All</button>
+          <button class="list-btn btn-active">Active</button>
+          <button class="list-btn btn-completed">Completed</button>
+          <button class="list-btn btn-close-completed">Close Completed</button>
+        </ul>
     </div>
   </main>
 </body>
