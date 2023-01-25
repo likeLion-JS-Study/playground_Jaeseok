@@ -19,7 +19,39 @@
   color:#fff;
 }
 
+/* 공통 메인 */
+.main{
+  position:absolute;
+}
 
+/* common create section */
+/* create input checkbox */
+  .create input[type="checkbox"]{
+    border-radius:50%;
+    border:1px solid #E3E4F1;
+    appearance: none;
+    cursor:pointer;
+    transition: background 0.2s;
+    position:relative;
+  }
+
+  .create input[type="checkbox"]:checked{
+    background:url("../images/icon-check.svg") no-repeat 50% 50% / 50%, linear-gradient(-60deg, #FFF, #55DDFF, #C058F3);
+    border:none;
+  }
+
+    /* create input text */
+  .create input[type="text"]{
+    border:0;
+    border-radius:5px;
+    background:#fff;
+    color:#9495A5;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  }
+
+  .create input[type="text"]::placeholder{
+    letter-spacing: -0.166667px;
+  }
 
 /* Mobile Device */
 @media (max-width: 375px) {
@@ -44,6 +76,26 @@
     right:1.5425rem;
   }
   
+  /* 메인 영역 */
+  .main{
+    top:6.75rem;
+  }
+
+  /* create input checkbox */
+  .create input[type="checkbox"]{
+    width:1.25rem;
+    height:1.25rem;
+    top:2.5rem;
+    left:1.25rem;
+  }
+  
+  /* create input text */
+  .create input[type="text"]{
+    width:20.437rem;
+    height:3rem;
+    margin-bottom:1rem;
+    text-indent:3.25rem;
+  }
 }
 
 /* Desktop Device */
@@ -67,5 +119,26 @@
     height:1.625rem;
     top:4.375rem;
     right:31.180555555%;
+  }
+
+  /* 메인 영역 */
+  .main{
+    top:9.875rem;
+  }
+
+  /* create input checkbox */
+  .create input[type="checkbox"]{
+    width:24px;
+    height:24px;
+    top:10px;
+    left:24px;
+  }
+  
+  /* create input text */
+  .create input[type="text"]{
+    width:530px;
+    height:64px;
+    margin-bottom:24px;
+    text-indent:72px;
   }
 }
