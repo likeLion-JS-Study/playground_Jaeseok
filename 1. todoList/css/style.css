@@ -128,17 +128,17 @@
 
   /* create input checkbox */
   .create input[type="checkbox"]{
-    width:24px;
-    height:24px;
-    top:10px;
-    left:24px;
+    width:1.5rem;
+    height:1.5rem;
+    top:0.625rem;
+    left:3rem;
   }
   
   /* create input text */
   .create input[type="text"]{
-    width:530px;
-    height:64px;
-    margin-bottom:24px;
-    text-indent:72px;
+    width:33.125rem;
+    height:4rem;
+    margin-bottom:1.5rem;
+    text-indent:4.5rem;
   }
 }
