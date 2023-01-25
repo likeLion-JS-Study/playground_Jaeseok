@@ -3,14 +3,65 @@
 @import url(./theme.css);
 @import url(./base.css);
 
+/* 공통 header */
+.header{
+  width:100%;
+  position:relative;
+}
+
+/* 공통 logo + icon */
+.logo, .icon{
+  position:absolute;
+}
+
+.logo{
+  font-weight:700;
+  color:#fff;
+}
+
 
 
 /* Mobile Device */
-@media (min-width: 375px) {
+@media (max-width: 375px) {
+  /* header 영역 */
+  .header{
+    height:12.5rem;
+    background:url('../images/bg-mobile-light.jpg') no-repeat 0 0 / 100% 100%
+  }
+
+  /* logo 영역 */
+  .logo{
+    top:3rem;
+    left:1.625rem;
+    font-size:1.75rem;
+  }
+
+  /* icon 영역 */
+  .icon-moon{
+    top:3rem;
+    right:1.5425rem;
+  }
   
 }
 
 /* Desktop Device */
-@media (max-width: 1440px) {
-  
+/* and (max-width: 1440px) */
+@media (min-width: 376px) {
+  /* header 영역 */
+  .header{
+    height:18.75rem;
+    background:url('../images/bg-desktop-light.jpg') no-repeat 0 0 / 100% 100%;
+  }
+
+  .logo{
+    top:4.375rem;
+    left:31.25%;
+    font-size:1.75rem;
+  }
+
+  /* icon 영역 */
+  .icon-moon{
+    top:4.375rem;
+    right:31.180555555%;
+  }
 }

@@ -21,10 +21,18 @@ body {
   font: inherit;
   font-family: 'Josefin Sans', sans-serif;
   background-color: #fff;
+  font-size:1.125rem;
 }
 
 /* 유연한 미디어 */
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* position을 통한 중앙 정렬 */
+.position-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
