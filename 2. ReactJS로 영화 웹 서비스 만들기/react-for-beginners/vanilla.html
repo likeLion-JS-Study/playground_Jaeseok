@@ -7,20 +7,23 @@
   <title>Document</title>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
 </body>
-<script>
+<script type="text/babel">
   const root = document.getElementById('root');
-  const span = React.createElement(
+  const Title = <h3 id='title' onMouseEnter={()=> console.log('mouse enter')}>Hello I'm span</h3>
+/*   const h3 = React.createElement(
     'h3', 
     {
       id: 'title',
       onMouseEnter: () => console.log('mouse enter'),
     }, 
-    "Hello I'm span");
-  const btn = React.createElement(
+    "Hello I'm span"); */
+  const Button = <button style={{background: 'tomato'}} onClick={()=> console.log('im clicked')}>Click me</button>
+/*   const btn = React.createElement(
     'button', 
     {
       onClick: () => console.log('im clicked'),
@@ -28,8 +31,8 @@
         background: 'tomato'
       }
     }, 
-    'Click me')
-  const div = React.createElement('div', {}, [span, btn])
+    'Click me') */
+  const div = React.createElement('div', {}, [Title, Button])
   ReactDOM.render(div, root)
 </script>
 </html>
