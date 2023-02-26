@@ -4,20 +4,30 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JS Counter</title>
+  <title>Document</title>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <span>Total clicks: 0</span>
-  <button id="btn">Click me</button>
+  <div id="root"></div>
 </body>
-<script>
+<script type="text/babel">
+  const root = document.getElementById('root');
   let counter = 0;
-  const button = document.getElementById('btn');
-  const span = document.querySelector('span')
-  function handleClick() {
+  function countUp() {
     counter += 1;
-    span.innerText = `Total clicks: ${counter}`;
+    render();
   }
-  button.addEventListener('click', handleClick)
+  function render() {
+    ReactDOM.render(<Container />, root);
+  }
+  const Container = () => (
+    <div>
+      <h3>Total clicks: {counter}</h3>
+      <button onClick={countUp}>Click me</button>
+    </div>
+  );
+  ReactDOM.render(<Container />, root)
 </script>
 </html>
