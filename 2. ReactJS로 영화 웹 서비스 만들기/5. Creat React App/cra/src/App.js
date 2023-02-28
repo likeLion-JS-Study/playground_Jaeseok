@@ -3,17 +3,16 @@ import { useState, useEffect } from 'react';
 function App() {
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
-  const [cost, setCost] = useState(1);
-  const [need, setNeed] = useState(0);
+  const [cost, setCost] = useState('');
+  const [need, setNeed] = useState('');
 
   const onChange = (e) => {
     setCost(e.target.value);
-    setNeed(1);
+    setNeed('');
   }
 
   const handleInput = (e) => {
     setNeed(e.target.value)
-    console.log(need);
   }
 
   useEffect(() => {
