@@ -11,7 +11,7 @@ function App() {
           element={< Home />}
         />
         <Route
-          path="/movie"
+          path="/movie/:id"
           element={< Detail />}
         />
       </Routes>
