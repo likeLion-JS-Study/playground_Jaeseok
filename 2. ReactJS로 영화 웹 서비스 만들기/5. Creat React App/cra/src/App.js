@@ -2,47 +2,34 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [coins, setCoins] = useState([]);
-  const [cost, setCost] = useState('');
-  const [need, setNeed] = useState('');
-
-  const onChange = (e) => {
-    setCost(e.target.value);
-    setNeed('');
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    const response = await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`);
+    const json = await response.json();
+    setMovies(json.data.movies);
+    setLoading(false);
   }
-
-  const handleInput = (e) => {
-    setNeed(e.target.value)
-  }
-
   useEffect(() => {
-    fetch("https://api.coinpaprika.com/v1/tickers")
-      .then((response) => response.json())
-      .then((json) => {
-        setCoins(json);
-        setLoading(false);
-      });
-  }, [])
+    getMovies()
+  }, []);
   return (
     <>
-      <h1>The Coins!({loading ? "" : `Here are ..${coins.length} coins`})</h1>
       {loading ?
-        <strong>Loading...</strong>
+        <h1>Loading...</h1>
         :
-        <select onChange={onChange}>
-          <option>Select Coin!</option>
-          {coins.map((coin) => 
-            <option key={coin.id} value={coin.quotes.USD.price}>
-              {coin.name} ({coin.symbol}) : ${coin.quotes.USD.price}
-            </option>
-          )}
-        </select>
-      }
-      <h2>Please enter the amount</h2>
-      <div>
-        <input value={need} onChange={handleInput} type="number" placeholder='input amount of money' />$
-      </div>
-      <h2>You can get {need / cost}</h2>
+        (<div>
+          {movies.map((movie) => (
+            <div key={movie.id}>
+              <img src={movie.medium_cover_image} alt="coverImage" />
+              <h2>{movie.title}</h2>
+              <p>{movie.summary}</p>
+              <ul>
+                {movie.genres.map(g =><li key={g}>{g}</li>)}
+              </ul>
+            </div>
+        ))}
+        </div>
+      )}
     </>
   );
 }
