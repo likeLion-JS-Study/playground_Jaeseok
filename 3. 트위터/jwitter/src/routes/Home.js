@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 import { collection, addDoc, query, onSnapshot } from "firebase/firestore";
+import { ref, uploadString } from "@firebase/storage";
 import Jweet from 'components/Jweet';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const Home = ({ userObj }) => {
   const [jweet, setJweet] = useState('');
@@ -19,16 +22,19 @@ const Home = ({ userObj }) => {
   }, [])
   const onSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await addDoc(collection(dbService, "jweets"), {
-        text: jweet,
-        createdAt: Date.now(),
-        creatorId: userObj.uid,
-      });
-      setJweet('');
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
+    const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
+    const response = await uploadString(fileRef, attachment, "data_url");
+    console.log(response);
+    // try {
+    //   await addDoc(collection(dbService, "jweets"), {
+    //     text: jweet,
+    //     createdAt: Date.now(),
+    //     creatorId: userObj.uid,
+    //   });
+    //   setJweet('');
+    // } catch (error) {
+    //   console.error("Error adding document: ", error);
+    // }
   }
   const onChange = (e) => {
     const { target: { value } } = e;
