@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { dbService } from 'fbase';
-import { collection, addDoc, getDocs, query, onSnapshot  } from "firebase/firestore";
+import { collection, addDoc, query, onSnapshot } from "firebase/firestore";
+import Jweet from 'components/Jweet';
 
 const Home = ({ userObj }) => {
   const [jweet, setJweet] = useState('');
@@ -40,9 +41,11 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {jweets.map((jweet) => (
-          <div key={jweet.id}>
-            <h4>{jweet.text}</h4>
-          </div>
+          <Jweet
+            key={jweet.id}
+            jweetObj={jweet}
+            isOwner={jweet.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </>
