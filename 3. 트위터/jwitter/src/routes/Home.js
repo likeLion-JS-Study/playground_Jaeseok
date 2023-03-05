@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { dbService } from 'fbase';
-import { collection, addDoc, getDocs, query  } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, onSnapshot  } from "firebase/firestore";
 
-
-const Home = () => {
+const Home = ({ userObj }) => {
   const [jweet, setJweet] = useState('');
   const [jweets, setJweets] = useState([]);
-  const getJweets = async () => {
-    const q = query(collection(dbService, "jweet"));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      const jweetObj = {
-        ...doc.data(),
-        id: doc.id
-      }
-      setJweets(prev => [jweetObj, ...prev])
-    })
-  };
   useEffect(() => {
-    getJweets();
+    const q = query(collection(dbService, "jweets"));
+    onSnapshot(q, (snapshot) => {
+      const jweetArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setJweets(jweetArray)
+    })
   }, [])
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addDoc(collection(dbService, "jweet"), {
-        jweet,
+      await addDoc(collection(dbService, "jweets"), {
+        text: jweet,
         createdAt: Date.now(),
+        creatorId: userObj.uid,
       });
       setJweet('');
     } catch (error) {
@@ -45,7 +41,7 @@ const Home = () => {
       <div>
         {jweets.map((jweet) => (
           <div key={jweet.id}>
-            <h4>{jweet.jweet}</h4>
+            <h4>{jweet.text}</h4>
           </div>
         ))}
       </div>
