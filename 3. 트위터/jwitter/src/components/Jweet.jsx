@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
-import { dbService } from "fbase";
+import { deleteObject, ref } from "firebase/storage";
+import { dbService, storageService } from "fbase";
 
 const Jweet = ({ jweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -8,8 +9,16 @@ const Jweet = ({ jweetObj, isOwner }) => {
   const onDeleteClick = async () => {
     const ok = window.confirm('Are you sure you want to delete this jweet?');
     const JweetTextRef = doc(dbService, "jweets", `${jweetObj.id}`);
+    const urlRef = ref(storageService, jweetObj.attachmentUrl);
     if (ok) {
-      await deleteDoc(JweetTextRef);
+      try {
+        await deleteDoc(JweetTextRef);
+        if (jweetObj.attachmentUrl !== "") {
+          await deleteObject(urlRef);
+        }
+      } catch (error) {
+        window.alert("트윗을 삭제하는 데 실패했습니다!");
+      }
     }
   };
   const toogleEditing = () => setEditing(prev => !prev);
