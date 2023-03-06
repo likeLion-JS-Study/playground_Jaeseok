@@ -5,11 +5,10 @@ import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import Jweet from 'components/Jweet';
 import { v4 as uuidv4 } from 'uuid';
 
-
 const Home = ({ userObj }) => {
   const [jweet, setJweet] = useState('');
   const [jweets, setJweets] = useState([]);
-  const [attachment, setAttachment] = useState(null);
+  const [attachment, setAttachment] = useState("");
   useEffect(() => {
     const q = query(collection(dbService, "jweets"));
     onSnapshot(q, (snapshot) => {
